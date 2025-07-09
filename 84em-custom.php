@@ -8,8 +8,26 @@
  * Author URI:      https://www.84em.com/
  */
 
+namespace EightyFourEM;
+
 defined( 'ABSPATH' ) or die;
 
-foreach ( glob( dirname( __FILE__ ) . '/inc/*.php' ) as $file ) {
-	require_once $file;
-}
+// Define plugin constants
+define( 'EIGHTYFOUREM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'EIGHTYFOUREM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+
+// Include all PHP files from the inc directory
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/acf.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/author-pages.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/dequeue.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/disable-comments.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/document-title.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/google-reviews.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/gravity-forms.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/meta-tags.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/performance.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/schema.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/search.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/shortcode-last-updated.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/shortlinks.php';
+require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/sitemap.php';

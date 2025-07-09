@@ -1,10 +1,12 @@
 <?php
 
+namespace EightyFourEM;
+
 defined( 'ABSPATH' ) || exit;
 
-add_shortcode(
+\add_shortcode(
 	tag: 'last_updated',
 	callback: function ( $atts, $content ) {
 		global $post;
-		return date( "F j, Y", strtotime( $post->post_modified ) );
+		return \date( "F j, Y", \strtotime( $post->post_modified ) );
 	} );

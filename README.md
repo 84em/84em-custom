@@ -60,8 +60,8 @@ The plugin includes the following components:
 
 ## Requirements
 
-- WordPress 5.0 or higher
-- PHP 7.2 or higher
+- WordPress 6.8 or higher
+- PHP 8.0 or higher
 
 ## Usage
 

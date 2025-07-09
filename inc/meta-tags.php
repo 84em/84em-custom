@@ -2,6 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// integrates meta tags from legacy Genesis theme that we originally built the site on.
 add_action(
 	hook_name: 'wp_head',
 	callback: function () {
