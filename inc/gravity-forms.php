@@ -1,9 +1,11 @@
 <?php
 
+namespace EightyFourEM;
+
 defined( 'ABSPATH' ) || exit;
 
 // customizes the Gravity Forms error message.
-add_filter(
+\add_filter(
 	hook_name: 'gform_validation_message',
 	callback: function ( $message, $form ) {
 		$message = "<div class='validation_error gfield_validation_message' style='color:rgb(192, 43, 10)'>";

@@ -6,7 +6,6 @@
 
 namespace EightyFourEM;
 
-
 defined( 'ABSPATH' ) || exit;
 
 \add_action(

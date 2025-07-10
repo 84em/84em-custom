@@ -1,9 +1,11 @@
 <?php
 
+namespace EightyFourEM;
+
 defined( 'ABSPATH' ) || exit;
 
 // integrates meta tags from legacy Genesis theme that we originally built the site on.
-add_action(
+\add_action(
 	hook_name: 'wp_head',
 	callback: function () {
 		$_genesis_description = get_post_meta( get_the_ID(), '_genesis_description', true );
@@ -21,7 +23,7 @@ add_action(
 	priority: 1 );
 
 // removes the default robots meta tag
-remove_action(
+\remove_action(
 	hook_name: 'wp_head',
 	callback: 'wp_robots',
 	priority: 1 );
