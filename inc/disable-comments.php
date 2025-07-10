@@ -1,5 +1,20 @@
 <?php
 
+/**
+ * WordPress Comments Disabler
+ *
+ * This file contains code to completely disable the WordPress comments functionality.
+ * It performs the following operations:
+ *
+ * 1. Removes comment support from all post types
+ * 2. Disables comments and trackbacks on the front-end
+ * 3. Hides existing comments
+ * 4. Removes the comments menu from the admin panel
+ *
+ * This provides a comprehensive way to disable the entire comments system
+ * by modifying default behavior through WordPress hooks and filters.
+ */
+
 defined( 'ABSPATH' ) || exit;
 
 // Disable support for comments
@@ -22,12 +37,12 @@ add_filter(
 	priority: 20,
 	accepted_args: 2 );
 
+// close Pings on the front-end
 add_filter(
 	hook_name: 'pings_open',
 	callback: '__return_false',
 	priority: 20,
 	accepted_args: 2 );
-
 
 // Hide existing comments
 add_filter(

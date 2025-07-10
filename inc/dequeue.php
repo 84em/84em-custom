@@ -11,3 +11,13 @@ add_action(
 		}
 	},
 	priority: 1000 );
+
+// remove unused style
+add_action(
+	hook_name: 'wp_enqueue_scripts',
+	callback: function () {
+
+		wp_dequeue_style( 'spectra-pro-block-css' );
+	},
+	priority: 99999 );
+

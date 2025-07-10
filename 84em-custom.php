@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:     84EM Custom Code
- * Plugin URI:      https://www.84em.com/
- * Description:     Custom code for 84EM
+ * Plugin URI:      https://84em.com/
+ * Description:     A WordPress plugin that provides custom functionality for the 84EM website.
  * Version:         1.0
  * Author:          84EM
- * Author URI:      https://www.84em.com/
+ * Author URI:      https://84em.com/
  */
 
 namespace EightyFourEM;

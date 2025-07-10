@@ -1,8 +1,11 @@
 <?php
 
+/**
+ * Disables the Author archive pages, redirecting the user to the home page instead.
+ */
+
 defined( 'ABSPATH' ) || exit;
 
-// disable author pages
 add_action(
 	hook_name: 'template_redirect',
 	callback: function () {

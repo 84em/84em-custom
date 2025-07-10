@@ -20,6 +20,7 @@ add_action(
 	},
 	priority: 1 );
 
+// removes the default robots meta tag
 remove_action(
 	hook_name: 'wp_head',
 	callback: 'wp_robots',

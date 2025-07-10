@@ -1,8 +1,15 @@
 <?php
 
+/**
+ * Improves LCP on the home page by preloading an image
+ */
+
+namespace EightyFourEM;
+
+
 defined( 'ABSPATH' ) || exit;
 
-add_action(
+\add_action(
 	hook_name: 'wp_head',
 	callback: function () {
 		if ( is_front_page() ) {
@@ -10,12 +17,3 @@ add_action(
 		}
 	},
 	priority: 1 );
-
-add_action(
-	hook_name: 'wp_enqueue_scripts',
-	callback: function () {
-
-		wp_dequeue_style( 'spectra-pro-block-css' );
-	},
-	priority: 99999 );
-

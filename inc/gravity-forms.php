@@ -2,6 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
+// customizes the Gravity Forms error message.
 add_filter(
 	hook_name: 'gform_validation_message',
 	callback: function ( $message, $form ) {

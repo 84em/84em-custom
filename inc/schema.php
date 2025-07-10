@@ -1,8 +1,43 @@
 <?php
 
+/**
+ * Automatically generate and save schema.org structured data for posts, pages, and projects.
+ *
+ * The `save_post` action is used to hook into post save/update events, ensuring that structured data
+ * is generated and saved only for a given set of post types. The schema data follows the guidelines
+ * of schema.org and is tailored to specific WordPress post types (post, page, and custom post types like "project").
+ *
+ * The following high-level operations are performed:
+ * - Preventing execution during autosave or post revision updates.
+ * - Verifying user permissions to edit the current post.
+ * - Checking the post type to determine if schema generation applies (post, page, project).
+ * - Generating structured data for supported post types based on schema.org guidelines with specific attributes.
+ * - Adding breadcrumb trail information for enhanced schema context.
+ * - Providing additional attributes or keywords relevant to the content type, such as author, categories, and tags.
+ *
+ * For `project` post types:
+ * - Keywords are extracted from the content based on predefined technical terms.
+ * - The schema includes additional properties such as creator information and genres.
+ *
+ * For `post` post types:
+ * - Adds author and publisher information.
+ * - Includes associated categories and tags as keywords.
+ *
+ * For `page` post types:
+ * - Custom handling for specific page slugs like "contact" or "services" to provide more contextual schema.
+ *
+ * @hook save_post
+ *
+ * @param  int  $post_id  The ID of the post being saved.
+ *
+ * @return void This function does not return a value. It halts execution if certain criteria (e.g., autosave, permissions)
+ *              are not met, or it proceeds to generate schema and update database as needed.
+ */
+
 namespace EightyFourEM;
 
 defined( 'ABSPATH' ) || exit;
+
 
 \add_action(
 	hook_name: 'save_post',

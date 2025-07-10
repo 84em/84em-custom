@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Registers actions to schedule and generate the XML sitemap when posts, pages,
+ * or projects are published.
+ */
+
 namespace EightyFourEM;
 
 defined( 'ABSPATH' ) || exit;
