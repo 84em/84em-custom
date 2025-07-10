@@ -63,6 +63,39 @@ The plugin includes the following components:
 - WordPress 6.8 or higher
 - PHP 8.0 or higher
 
+## Development
+
+### Gulp Integration
+
+This plugin uses Gulp to optimize JavaScript and CSS files. The Gulp setup provides tasks for minifying JS files, optimizing CSS files, and watching for changes during development.
+
+#### Setup
+
+1. Make sure you have Node.js and npm installed
+2. Navigate to the plugin directory in your terminal
+3. Run `npm install` to install dependencies
+
+#### Available Commands
+
+- `npm start` - Starts the development process with file watching
+- `npm run build` - Builds optimized files for production
+
+#### Gulp Tasks
+
+- `gulp clean` - Removes previously generated minified files
+- `gulp styles` - Optimizes CSS files
+- `gulp scripts` - Minifies JavaScript files
+- `gulp watch` - Watches for changes in source files
+- `gulp build` - Builds all assets for production (cleans, then processes JS and CSS)
+
+#### File Structure
+
+The Gulp setup processes the following files:
+- JavaScript: `inc/google-reviews-block/block.js` → `inc/google-reviews-block/block.min.js`
+- CSS: 
+  - `inc/google-reviews-block/style.css` → `inc/google-reviews-block/style.min.css`
+  - `inc/google-reviews-block/editor.css` → `inc/google-reviews-block/editor.min.css`
+
 ## Usage
 
 Most features work automatically after activation. The plugin enhances your site's SEO, performance, and functionality without requiring manual configuration.
