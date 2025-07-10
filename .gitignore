@@ -1,0 +1,11 @@
+# Node.js dependencies
+node_modules/
+
+# Generated files
+*.min.js
+*.min.css
+*.map
+
+# OS generated files
+.DS_Store
+Thumbs.db
