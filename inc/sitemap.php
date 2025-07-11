@@ -52,12 +52,12 @@ function schedule_xml_sitemap_84em( int $post_id, object $post_object, string $o
  * Generates an XML sitemap from published posts, pages, and projects,
  * and writes it to the sitemap.xml file in the site's root directory.
  *
- * @param  array  $args  Optional arguments passed to the function.
+ * @param  array|null  $args  Optional arguments passed to the function.
  *                       This typically allows additional customization or future extension.
  *
  * @return void
  */
-function create_xml_sitemap_84em( array $args ): void {
+function create_xml_sitemap_84em( array|null $args ): void {
 	$posts = \get_posts( [
 		'numberposts'    => 9999,
 		'posts_per_page' => 9999,
