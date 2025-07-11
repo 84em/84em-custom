@@ -75,7 +75,7 @@ function create_xml_sitemap_84em( array $args ): void {
 			continue;
 		}
 		$link = \get_permalink( $post->ID );
-		if ( 'https://www.84em.com/' === $link ) {
+		if ( 'https://84em.com/' === $link ) {
 			$priority = '1.0';
 		} elseif ( 'project' === $post->post_type ) {
 			$priority = '0.5';
