@@ -376,10 +376,13 @@ class GoogleReviewsBlock {
                         <div class="review-item">
                             <div class="review-header">
                                 <div class="reviewer-info">
+		                            <?php if ( isset( $review['profile_photo_url'] ) ): ?>
+                                    <img src="<?php echo esc_url( $review['profile_photo_url'] ); ?>" alt="<?php echo esc_attr( $review['author_name'] ); ?>" class="reviewer-photo"/>
+		                            <?php endif; ?>
                                     <div class="reviewer-details">
                                         <span class="reviewer-name"><?php echo \esc_html( $review['author_name'] ); ?></span>
                                         <div class="review-rating-individual">
-                                            <?php echo $this->render_stars( $review['rating'] ); ?>
+				                            <?php echo $this->render_stars( $review['rating'] ); ?>
                                             <span class="review-time"><?php echo \esc_html( $this->format_review_time( $review['time'] ) ); ?></span>
                                         </div>
                                     </div>
