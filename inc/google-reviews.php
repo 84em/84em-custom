@@ -287,7 +287,7 @@ class GoogleReviewsBlock {
         $result = $data['result'];
 
         $reviews_data = [
-            'name'          => $result['name'],
+            'name'          => $options['business_name'] ?? $result['name'] ?? '',
             'rating'        => $result['rating'] ?? 0,
             'total_ratings' => $result['user_ratings_total'] ?? 0,
             'url'           => $result['url'] ?? '',
