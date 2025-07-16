@@ -3,7 +3,7 @@
  * Plugin Name:     84EM Custom Code
  * Plugin URI:      https://84em.com/
  * Description:     A WordPress plugin that provides custom functionality for the 84EM website.
- * Version:         1.0
+ * Version:         1.0.1
  * Author:          84EM
  * Author URI:      https://84em.com/
  */
@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) or die;
 // Define plugin constants
 define( 'EIGHTYFOUREM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EIGHTYFOUREM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'EIGHTYFOUREM_PLUGIN_VERSION', '1.0' );
+define( 'EIGHTYFOUREM_PLUGIN_VERSION', '1.0.1' );
 
 // Include all PHP files from the inc directory
 require_once EIGHTYFOUREM_PLUGIN_DIR . 'inc/acf.php';
