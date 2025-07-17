@@ -2,6 +2,14 @@
 
 # Script to generate changelog.txt from Git log
 # This script creates a changelog organized by tags/releases
+# This script should only be run when a Git tag is created
+
+# Check if the script is being called with the correct parameter
+if [ "$1" != "--from-tag-creation" ]; then
+    echo "Error: This script should only be run when creating Git tags."
+    echo "Use the tag-and-changelog.sh script to create tags and update the changelog."
+    exit 1
+fi
 
 CHANGELOG_FILE="changelog.txt"
 

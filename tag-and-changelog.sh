@@ -27,7 +27,7 @@ if [ $? -eq 0 ]; then
 
     # Update the changelog
     echo "Updating changelog..."
-    ./update-changelog.sh
+    ./update-changelog.sh --from-tag-creation
 
     # Update version in README.md
     echo "Updating version in README.md..."
