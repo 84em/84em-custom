@@ -40,8 +40,8 @@ defined( 'ABSPATH' ) || exit;
 
 
 \add_action(
-    hook_name: 'save_post',
-    callback: function ( $post_id ) {
+    hook_name: 'wp_after_insert_post',
+    callback: function (  $post_id, $post, $update ) {
         // Prevent autosave and revision updates
         if ( \wp_is_post_autosave( $post_id ) || \wp_is_post_revision( $post_id ) ) {
             return;
@@ -292,6 +292,59 @@ defined( 'ABSPATH' ) || exit;
                             ],
                         ];
                         break;
+
+                    case 'testimonials':
+                        // Get actual review count from Google Reviews
+                        $google_reviews_block = new GoogleReviewsBlock();
+                        $google_reviews_data  = $google_reviews_block->get_google_reviews();
+
+                        // Default review count (fallback)
+                        $total_review_count = 5;
+                        $average_rating     = '5.0';
+
+                        // If Google reviews data is available, use the actual count
+                        if ( $google_reviews_data && isset( $google_reviews_data['total_ratings'] ) ) {
+                            $total_review_count = $google_reviews_data['total_ratings'];
+                            if ( isset( $google_reviews_data['rating'] ) ) {
+                                $average_rating = number_format( $google_reviews_data['rating'], 1 );
+                            }
+                        }
+
+                        // Add the Clutch reviews to the count.  Hard coded value as this information isn't exposed in the page source.
+                        $total_review_count += 3;
+
+                        $schema['mainEntity'] = [
+                            '@type'           => 'Organization',
+                            '@id'             => $site_url . '/#organization',
+                            'name'            => '84EM',
+                            'description'     => 'Expert WordPress Development Services',
+                            'url'             => $site_url,
+                            'aggregateRating' => [
+                                '@type'       => 'AggregateRating',
+                                'ratingValue' => $average_rating,
+                                'reviewCount' => (string) $total_review_count,
+                                'bestRating'  => '5',
+                                'worstRating' => '1',
+                            ],
+                            'review'          => [
+                                [
+                                    '@type'         => 'Review',
+                                    'reviewRating'  => [
+                                        '@type'       => 'Rating',
+                                        'ratingValue' => '5',
+                                        'bestRating'  => '5',
+                                        'worstRating' => '1',
+                                    ],
+                                    'author'        => [
+                                        '@type' => 'Organization',
+                                        'name'  => 'Clutch.co Verified Client',
+                                    ],
+                                    'reviewBody'    => '84EM is nothing but a breath of fresh air in a world of unreliable vendors.',
+                                    'datePublished' => \get_the_date( 'c', $post_id ),
+                                ],
+                            ],
+                        ];
+                        break;
                 }
                 break;
         }
@@ -313,10 +366,9 @@ defined( 'ABSPATH' ) || exit;
         // Convert to JSON and save to post meta
         $schema_json = \wp_json_encode( $schema, \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE );
         \update_post_meta( $post_id, 'schema', $schema_json );
-
     },
-    priority: 10,
-    accepted_args: 1 );
+    priority: 99,
+    accepted_args: 3 );
 
 // Function to output schema in head
 \add_action(
