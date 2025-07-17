@@ -3,7 +3,7 @@
  * Plugin Name:     84EM Custom Code
  * Plugin URI:      https://84em.com/
  * Description:     A WordPress plugin that provides custom functionality for the 84EM website.
- * Version:         1.0.1
+ * Version:         1.0.7
  * Author:          84EM
  * Author URI:      https://84em.com/
  */
