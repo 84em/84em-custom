@@ -88,11 +88,7 @@ This will:
 3. Commit the changelog changes
 4. Provide instructions for pushing to remote repository
 
-To manually update the changelog:
-
-```bash
-./update-changelog.sh
-```
+**Note:** The changelog is automatically updated only when creating Git tags. Manual execution of `update-changelog.sh` is not supported to ensure changelog updates occur only when tags are added to the repository.
 
 #### Changelog Format
 
@@ -102,7 +98,7 @@ The generated changelog follows the [Keep a Changelog](https://keepachangelog.co
 
 #### Deployment Integration
 
-The `deploy.sh` script automatically updates the changelog before deployment to ensure the remote server always has the latest changelog.
+The `deploy.sh` script handles deployment to the remote server. Changelog updates are handled separately through the tag creation process to ensure they only occur when Git tags are added.
 
 ### Gulp Integration
 
@@ -149,7 +145,7 @@ The plugin automatically generates an XML sitemap at the root of your website (`
 
 ## Version
 
-Current version: 1.0.3
+Current version: 1.0.6
 
 ## Author
 
