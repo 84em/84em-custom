@@ -1,0 +1,34 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [v1.0.2] - 2025-07-17
+
+- Adds organization schema with testimonials support (d3186d5)
+
+## [v1.0.1] - 2025-07-16
+
+- Display the business name from the options screen instead of  place name (a7c7b85)
+
+## [v1.0.0] - 2025-07-15
+
+- initial commit (34051ef)
+- refactor to use namespacing (187df3f)
+- updates phpdocs (b2c2603)
+- adds missing namespaces (498b7ff)
+- adds Gulp for JS & CSS processing (08c429a)
+- Merge pull request #1 from 84em/gulp (34c6fa9)
+- fix tabs/spacing issues (e44fea5)
+- Merge pull request #2 from 84em/gulp (2223e22)
+- Removes www in sitemap (4ea64a6)
+- Merge pull request #3 from 84em/sitemap (138d255)
+- fix function args (eb70da8)
+- Merge pull request #4 from 84em/sitemap (0097dcd)
+- updates deploy script (8730d41)
+- Merge pull request #5 from 84em/deploy (748f746)
+- Adds reviewer profile photos to review display (32483be)
+- Standardizes indentation from tabs to spaces (45fb1b6)
+
