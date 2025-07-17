@@ -65,6 +65,41 @@ The plugin includes the following components:
 
 ## Development
 
+### Changelog Management
+
+This plugin includes automated changelog generation based on Git commit history and tags.
+
+#### Scripts
+
+- **update-changelog.sh** - Generates `changelog.txt` from Git log, organized by tags/releases
+- **tag-and-changelog.sh** - Creates a Git tag and automatically updates the changelog
+
+#### Usage
+
+To create a new release with automatic changelog generation:
+
+```bash
+./tag-and-changelog.sh v1.0.3 "Release version 1.0.3 with new features"
+```
+
+This will:
+1. Create a Git tag with the specified name and message
+2. Generate an updated changelog.txt file
+3. Commit the changelog changes
+4. Provide instructions for pushing to remote repository
+
+**Note:** The changelog is automatically updated only when creating Git tags. Manual execution of `update-changelog.sh` is not supported to ensure changelog updates occur only when tags are added to the repository.
+
+#### Changelog Format
+
+The generated changelog follows the [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) format and includes:
+- **[Unreleased]** - Commits since the latest tag
+- **[Tag Version] - Date** - Commits included in each tagged release
+
+#### Deployment Integration
+
+The `deploy.sh` script handles deployment to the remote server. Changelog updates are handled separately through the tag creation process to ensure they only occur when Git tags are added.
+
 ### Gulp Integration
 
 This plugin uses Gulp to optimize JavaScript and CSS files. The Gulp setup provides tasks for minifying JS files, optimizing CSS files, and watching for changes during development.
@@ -110,7 +145,7 @@ The plugin automatically generates an XML sitemap at the root of your website (`
 
 ## Version
 
-Current version: 1.0
+Current version: 1.0.8
 
 ## Author
 

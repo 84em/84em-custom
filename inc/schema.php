@@ -38,10 +38,9 @@ namespace EightyFourEM;
 
 defined( 'ABSPATH' ) || exit;
 
-
 \add_action(
     hook_name: 'wp_after_insert_post',
-    callback: function (  $post_id, $post, $update ) {
+    callback: function ( $post_id, $post, $update ) {
         // Prevent autosave and revision updates
         if ( \wp_is_post_autosave( $post_id ) || \wp_is_post_revision( $post_id ) ) {
             return;
